@@ -1,24 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Category from "./pages/Category";
+import Todo from "./pages/Todo";
+import { useState } from "react";
 
 function App() {
+  const [todos, setTodos] = useState([]);
+  const [catogories, setCategories] = useState([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Category />} />
+        <Route path="/todo/:category" element={<Todo />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
