@@ -4,7 +4,7 @@ const reset = {
   todo: "",
   date: "",
 };
-const TodoForm = ({ addTodo, value }) => {
+const TodoForm = ({ addTodo, editedTodo: value }) => {
   const [newTodo, setNewTodo] = useState(reset);
   useEffect(() => {
     if (value) {

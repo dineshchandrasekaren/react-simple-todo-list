@@ -3,6 +3,7 @@ import TodoForm from "../components/TodoForm";
 import { useState } from "react";
 import TodoList from "../components/TodoList";
 import Button from "../components/Button";
+import NotFound from "../components/NotFound";
 
 const Todo = ({ todos, setTodos }) => {
   const [editTodo, setEditTodo] = useState("");
@@ -28,7 +29,7 @@ const Todo = ({ todos, setTodos }) => {
             ]);
           }
         }}
-        value={editTodo}
+        editedTodo={editTodo}
       />
       {filteredTodo.length ? (
         <TodoList
@@ -48,11 +49,10 @@ const Todo = ({ todos, setTodos }) => {
           onEdit={(todo) => {
             setEditTodo(todo);
           }}
+          editedTodo={editTodo}
         />
       ) : (
-        <h4 style={{ textAlign: "center", padding: "40px 0", color: "grey" }}>
-          Please add Todo
-        </h4>
+        <NotFound message={`No todo found in ${category} category.`} />
       )}
     </div>
   );

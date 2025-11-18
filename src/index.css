@@ -29,7 +29,7 @@ input {
   margin: 10px;
 }
 .disabled {
-  background-color: gray;
+  background-color: gray !important;
   cursor: not-allowed;
 }
 .red-button {

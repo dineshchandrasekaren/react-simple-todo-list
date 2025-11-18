@@ -1,6 +1,6 @@
-import { useState } from "react";
 import CategoryForm from "../components/CategoryForm";
 import CategoryList from "../components/CategoryList";
+import NotFound from "../components/NotFound";
 
 const Category = ({ categories, setCategory }) => {
   return (
@@ -13,9 +13,7 @@ const Category = ({ categories, setCategory }) => {
       {categories.length ? (
         <CategoryList categories={categories} />
       ) : (
-        <h4 style={{ textAlign: "center", padding: "40px 0", color: "grey" }}>
-          Please add category
-        </h4>
+        <NotFound message={` Please add category.`} />
       )}
     </div>
   );

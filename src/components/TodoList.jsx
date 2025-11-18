@@ -1,12 +1,15 @@
 import Button from "./Button";
 
-const TodoList = ({ todos, onEdit, onDelete, onComplete }) => {
+const TodoList = ({ todos, onEdit, onDelete, onComplete, editedTodo }) => {
   return (
     <table>
       <thead>
         <tr>
           <th>Todo</th>
           <th>Date</th>
+          <th></th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -27,6 +30,7 @@ const TodoList = ({ todos, onEdit, onDelete, onComplete }) => {
                 </Button>
               }
               <Button
+                disabled={editedTodo}
                 onClick={() => {
                   onDelete(todo.id);
                 }}
@@ -37,6 +41,7 @@ const TodoList = ({ todos, onEdit, onDelete, onComplete }) => {
             </td>
             <td>
               <Button
+                disabled={editedTodo}
                 onClick={() => {
                   onComplete(todo.id);
                 }}
