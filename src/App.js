@@ -6,12 +6,20 @@ import { useState } from "react";
 
 function App() {
   const [todos, setTodos] = useState([]);
-  const [catogories, setCategories] = useState([]);
+  const [categories, setCategory] = useState([]);
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Category />} />
-        <Route path="/todo/:category" element={<Todo />} />
+        <Route
+          path="/"
+          element={
+            <Category categories={categories} setCategory={setCategory} />
+          }
+        />
+        <Route
+          path="/todo/:category"
+          element={<Todo todos={todos} setTodos={setTodos} />}
+        />
       </Routes>
     </BrowserRouter>
   );

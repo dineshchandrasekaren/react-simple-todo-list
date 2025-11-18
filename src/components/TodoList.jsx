@@ -1,6 +1,6 @@
 import Button from "./Button";
 
-const TodoList = ({ todos, onEdit, onDelete }) => {
+const TodoList = ({ todos, onEdit, onDelete, onComplete }) => {
   return (
     <table>
       <thead>
@@ -11,25 +11,37 @@ const TodoList = ({ todos, onEdit, onDelete }) => {
       </thead>
       <tbody>
         {todos.map((todo) => (
-          <tr>
+          <tr className={todo.isCompleted ? "completed" : ""}>
             <td>{todo.todo}</td>
             <td>{todo.date}</td>
+
             <td>
+              {
+                <Button
+                  disabled={todo.isCompleted}
+                  onClick={() => {
+                    onEdit(todo);
+                  }}
+                >
+                  Edit
+                </Button>
+              }
               <Button
                 onClick={() => {
-                  onEdit(todo);
+                  onDelete(todo.id);
                 }}
+                className="red-button"
               >
-                Edit
+                Delete
               </Button>
             </td>
             <td>
               <Button
                 onClick={() => {
-                  onDelete(todo.id);
+                  onComplete(todo.id);
                 }}
               >
-                Delete
+                {todo.isCompleted ? "Mark as incompleted" : "Mark as completed"}
               </Button>
             </td>
           </tr>

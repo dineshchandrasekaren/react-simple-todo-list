@@ -2,11 +2,9 @@ import { useState } from "react";
 import CategoryForm from "../components/CategoryForm";
 import CategoryList from "../components/CategoryList";
 
-const Category = () => {
-  const [categories, setCategory] = useState([]);
-
+const Category = ({ categories, setCategory }) => {
   return (
-    <div className="category">
+    <div className="center-page ">
       <CategoryForm
         onAddCategory={(category) => {
           setCategory((p) => [...p, category]);

@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.category {
+.center-page {
   width: max-content;
   margin: auto;
 }
@@ -16,6 +16,7 @@ input {
   border-radius: 10px;
   font-size: 16px;
   border: 2px solid gray;
+  margin: 10px;
 }
 .button {
   background-color: green;
@@ -27,6 +28,13 @@ input {
   font-weight: 600;
   margin: 10px;
 }
+.disabled {
+  background-color: gray;
+  cursor: not-allowed;
+}
+.red-button {
+  background-color: rgb(255, 82, 82);
+}
 
 .button:hover {
   filter: brightness(110%);
@@ -37,4 +45,13 @@ input {
   border: 1.5px solid green;
   text-decoration: none;
   border-radius: 10px;
+  margin: 10px;
+}
+table {
+  width: 90vw;
+  margin: auto;
+}
+.completed {
+  text-decoration: line-through;
+  color: gray;
 }
